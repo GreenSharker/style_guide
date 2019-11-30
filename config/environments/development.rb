@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -59,5 +61,5 @@ Rails.application.configure do
   #   Bullet_bullet_logger = false
   #   Bullet.console = false
   # end
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 end

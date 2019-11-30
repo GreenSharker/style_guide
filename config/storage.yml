@@ -1,15 +1,15 @@
-
 local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
- 
+
 test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
- 
+
 amazon:
   service: S3
-  access_key_id: ""
-  secret_access_key: ""
-  bucket: ""
-  region: "" # e.g. 'us-east-1'
+  access_key_id: "EHYG7G7Y672OLBN3W7UT"
+  secret_access_key: "YuQQJt+17r4JxpyfXr4qYFjrFEq+FmMKlJeR1/GtDWw"
+  bucket: "naeil"
+  region: sgp1 # e.g. 'us-east-1'
+  endpoint: "https://sgp1.digitaloceanspaces.com"

@@ -153,37 +153,39 @@
             <% end %>
           </div>
           <div class="col-md-9">
-            <h4 class="display-4 text-center" style="font-size: 35px;">
-              <%= "#{page.section_name} #{page.page_number}페이지 기사 목록" %>
-            </h4>
-            <table class="table table-bordered">
-              <thead>
-                <tr class="text-center">
-                  <th scope="col">배치 번호</th>
-                  <th scope="col">저자</th>
-                  <th scope="col">제목</th>
-                  <th scope="col">예상 글자 수</th>
-                  <th scope="col">기사 배정</th>
-                  <th scope="col">기사 편집</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% page.working_articles.sort_by{|a| a.order}.each do |working_article| %>
-                  <% if working_article.story %>
-                    <tr class="bg-info">
-                    <% else %>
-                      <tr>
-                      <% end %>
-                      <td><%= working_article.order %></td>
-                      <td><%= working_article.reporter %></td>
-                      <td><%= working_article.title %></td>
-                      <td><%= working_article.approximate_char_count %></td>
-                      <td class="text-center"><span><i class="fa fa-tasks" aria-hidden="true"></i><%= link_to '배정',change_story_working_article_path(working_article), method: :get, class: "btn btn-primary btn-sm" %></span></td>
-                      <td class="text-center"><%= link_to '편집',working_article_path(working_article), method: :get, class: "btn btn-info btn-sm" %></td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
+            <% @pages.each do |page| %>
+              <h4 class="display-4 text-center" style="font-size: 35px;">
+                <%= "#{page.section_name} #{page.page_number}페이지 기사 목록" %>
+              </h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">배치 번호</th>
+                    <th scope="col">저자</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">예상 글자 수</th>
+                    <th scope="col">기사 배정</th>
+                    <th scope="col">기사 편집</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% page.working_articles.sort_by{|a| a.order}.each do |working_article| %>
+                    <% if working_article.story %>
+                      <tr class="bg-info">
+                      <% else %>
+                        <tr>
+                        <% end %>
+                        <td><%= working_article.order %></td>
+                        <td><%= working_article.reporter %></td>
+                        <td><%= working_article.title %></td>
+                        <td><%= working_article.approximate_char_count %></td>
+                        <td class="text-center"><span><i class="fa fa-tasks" aria-hidden="true"></i><%= link_to '배정',change_story_working_article_path(working_article), method: :get, class: "btn btn-primary btn-sm" %></span></td>
+                        <td class="text-center"><%= link_to '편집',working_article_path(working_article), method: :get, class: "btn btn-info btn-sm" %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              <% end %>
             </div>
           </div>
         </div>

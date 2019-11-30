@@ -88,6 +88,7 @@ gem 'simple_form', '~> 4.0.1'
 gem 'sinatra', '~> 2.0.1'
 gem 'webpacker'
 gem 'whenever'
+gem "azure-storage-blob"
 
 # gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'mechanize'
